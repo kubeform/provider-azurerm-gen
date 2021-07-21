@@ -38,12 +38,13 @@ func main() {
 	}
 
 	opts := &util.GeneratorOptions{
-		ProviderName:       "azurerm",
-		ProviderData:       azurerm.Provider(),
-		ProviderImportPath: "github.com/terraform-providers/terraform-provider-azurerm/azurerm",
-		Version:            "v1alpha1",
-		APIsPath:           apisPath,
-		ControllerPath:     controllerPath,
+		ProviderName:         "azurerm",
+		ProviderNameOriginal: "azurerm",
+		ProviderData:         azurerm.Provider(),
+		ProviderImportPath:   "github.com/terraform-providers/terraform-provider-azurerm/azurerm",
+		Version:              "v1alpha1",
+		APIsPath:             apisPath,
+		ControllerPath:       controllerPath,
 	}
 	err := util.Generate(opts)
 	if err != nil {
