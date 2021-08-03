@@ -1,9 +1,9 @@
 [![Slack](https://shields.io/badge/Join_Slack-salck?color=4A154B&logo=slack)](https://slack.appscode.com)
 [![Twitter](https://img.shields.io/twitter/follow/kubeform.svg?style=social&logo=twitter&label=Follow)](https://twitter.com/intent/follow?screen_name=Kubeform)
 
-# Kubeform Linode Provider Code Generator
+# Kubeform Azure Resource Manager Provider Code Generator
 
-Generates code for Kubeform Linode Provider
+Kubeform code generator for [Terraform Azure Resource Manager Provider](https://github.com/terraform-providers/terraform-provider-azurerm)
 
 ## Installation
 
