@@ -42,6 +42,7 @@ func main() {
 		ProviderNameOriginal: "azurerm",
 		ProviderData:         azurerm.Provider(),
 		ProviderImportPath:   "github.com/terraform-providers/terraform-provider-azurerm/azurerm",
+		ProviderConfig:       "hashicorp/azurerm",
 		Version:              "v1alpha1",
 		APIsPath:             apisPath,
 		ControllerPath:       controllerPath,
