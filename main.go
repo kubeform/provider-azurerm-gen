@@ -22,7 +22,7 @@ import (
 
 	"kubeform.dev/generator-v2/util"
 
-	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
+	"github.com/hashicorp/terraform-provider-azurerm/azurerm"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
 		ProviderName:         "azurerm",
 		ProviderNameOriginal: "azurerm",
 		ProviderData:         azurerm.Provider(),
-		ProviderImportPath:   "github.com/terraform-providers/terraform-provider-azurerm/azurerm",
+		ProviderImportPath:   "github.com/hashicorp/terraform-provider-azurerm/azurerm",
 		ProviderConfig:       "hashicorp/azurerm",
 		Version:              "v1alpha1",
 		APIsPath:             apisPath,
