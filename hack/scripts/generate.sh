@@ -136,6 +136,7 @@ go mod edit \
     -require=kubeform.dev/apimachinery@ba5604d5a1ccd6ea2c07c6457c8b03f11ab00f63
 
 if [[ ! -z "$replace_repo" ]]; then
+    go mod tidy
     go mod edit -replace=${provider_repo}=${replace_repo}@${replace_version}
 fi
 
