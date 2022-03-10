@@ -118,7 +118,7 @@ fi
 go mod edit \
     -require=go.bytebuilders.dev/audit@v0.0.11 \
     -dropreplace=google.golang.org/api \
-    -require=kubeform.dev/terraform-backend-sdk@v0.0.0-20210922115523-21574335f0db \
+    -require=kubeform.dev/terraform-backend-sdk@v0.0.0-20220310143633-45f07fe731c5 \
     -dropreplace=github.com/Azure/go-ansiterm \
     -dropreplace=github.com/Azure/go-autorest/tracing \
     -dropreplace=github.com/Azure/go-autorest/logger \
