@@ -43,6 +43,7 @@ func main() {
 		ProviderData:         azurerm.Provider(),
 		ProviderImportPath:   "github.com/hashicorp/terraform-provider-azurerm/azurerm",
 		ProviderConfig:       "hashicorp/azurerm",
+		TfPluginVersion:      "v2.8.0",
 		Version:              "v1alpha1",
 		APIsPath:             apisPath,
 		ControllerPath:       controllerPath,
