@@ -39,9 +39,14 @@ repo_uptodate() {
 gen_version=$(git rev-parse --short HEAD)
 
 provider_name=azurerm
-provider_repo="github.com/terraform-providers/terraform-provider-$provider_name"
+provider_repo="github.com/hashicorp/terraform-provider-$provider_name"
 provider_version=$(go mod edit -json | jq -r ".Require[] | select(.Path == \"${provider_repo}\") | .Version")
+
+replace_repo=$(go mod edit -json | jq -r ".Replace[] | select(.Old.Path == \"${provider_repo}\") | .New.Path")
+replace_version=$(go mod edit -json | jq -r ".Replace[] | select(.Old.Path == \"${provider_repo}\") | .New.Version")
 echo "$provider_version"
+
+
 
 api_repo="github.com/kubeform/provider-${provider_name}-api"
 controller_repo="github.com/kubeform/provider-${provider_name}-controller"
@@ -129,6 +134,11 @@ go mod edit \
     -require=sigs.k8s.io/controller-runtime@v0.9.0 \
     -require=kmodules.xyz/client-go@5e9cebbf1dfa80943ecb52b43686b48ba5df8363 \
     -require=kubeform.dev/apimachinery@ba5604d5a1ccd6ea2c07c6457c8b03f11ab00f63
+
+if [[ ! -z "$replace_repo" ]]; then
+    go mod edit -replace=${provider_repo}=${replace_repo}@${replace_version}
+fi
+
 go mod tidy
 go mod vendor
 make gen fmt
