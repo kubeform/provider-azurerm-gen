@@ -46,8 +46,6 @@ replace_repo=$(go mod edit -json | jq -r ".Replace[] | select(.Old.Path == \"${p
 replace_version=$(go mod edit -json | jq -r ".Replace[] | select(.Old.Path == \"${provider_repo}\") | .New.Version")
 echo "$provider_version"
 
-
-
 api_repo="github.com/kubeform/provider-${provider_name}-api"
 controller_repo="github.com/kubeform/provider-${provider_name}-controller"
 installer_repo="github.com/kubeform/installer"
