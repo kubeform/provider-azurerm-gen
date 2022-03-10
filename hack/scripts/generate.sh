@@ -113,6 +113,10 @@ rm -rf controllers
 mkdir controllers
 make gen-controllers
 
+if [[ ! -z "$replace_repo" ]]; then
+    replace_stmt="-replace=${provider_repo}=${replace_repo}@${replace_version}"
+fi
+
 go mod edit \
     -require=go.bytebuilders.dev/audit@v0.0.11 \
     -dropreplace=google.golang.org/api \
@@ -133,12 +137,7 @@ go mod edit \
     -require=gomodules.xyz/logs@v0.0.3 \
     -require=sigs.k8s.io/controller-runtime@v0.9.0 \
     -require=kmodules.xyz/client-go@5e9cebbf1dfa80943ecb52b43686b48ba5df8363 \
-    -require=kubeform.dev/apimachinery@ba5604d5a1ccd6ea2c07c6457c8b03f11ab00f63
-
-if [[ ! -z "$replace_repo" ]]; then
-    go mod tidy
-    go mod edit -replace=${provider_repo}=${replace_repo}@${replace_version}
-fi
+    -require=kubeform.dev/apimachinery@ba5604d5a1ccd6ea2c07c6457c8b03f11ab00f63 ${replace_stmt}
 
 go mod tidy
 go mod vendor
